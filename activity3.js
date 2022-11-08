@@ -8,10 +8,7 @@ Map.prototype.change = function(){
     for(let [clave, valor] of this){
         //si el mapa tiene como clave el valor de la posicion del mapa recorrido
         if(mapa.has(valor)){     
-
             let nuevoValor = mapa.get(valor).push(clave);
-            
-
         }else{            
             mapa.set(valor,[clave]);
         }        
