@@ -7,10 +7,13 @@ function Ordenador(marca, modelo, ram = 4, memo = 512, pulgadas = 17){
 
     this.informacion=()=>`(Marca: ${this.marca}, Modelo: ${this.modelo}, RAM: ${this.ram}, Memoria: ${this.memoria} y ${this.pulgadas} pulgadas)`;
 }
-
+//creamos una clase laptop
 function Laptop(marca, modelo, ram=4, memo=256, pulgadas=12, autonomia=4){
+    //llamamos al padre con sus parametros
     this.__proto__ = new Ordenador(marca, modelo, ram, memo, pulgadas );
+    //definimos el nuevo parametro
     this.autonomia = autonomia;
+    //modificamos el toString
     this.informacion=()=>`(Marca: ${this.marca}, Modelo: ${this.modelo}, RAM: ${this.ram}, Memoria: ${this.memoria}, ${this.pulgadas} pulgadas y una autonimia de ${this.autonomia} horas)`;
 }
 

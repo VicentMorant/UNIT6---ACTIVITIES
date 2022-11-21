@@ -56,14 +56,10 @@
             $diasTotalesFecha1 = (this.getFullYear() * 365) + (this.getMonth()+1 * 30) + (this.getDate() * 1);
             //y calculamos todos los dias que tiene la fecha2
             $diasTotalesFecha2 = (d2.getFullYear() * 365) + (d2.getMonth()+1 * 30) + (d2.getDate() * 1);
-            //comprobamos cual es el mayor para restarle al mayor el menor
-            if($diasTotalesFecha1 > $diasTotalesFecha2){
-                return $diasTotalesFecha1-$diasTotalesFecha2;
-            }else if($diasTotalesFecha1<$diasTotalesFecha2){
-                return $diasTotalesFecha2-$diasTotalesFecha1;
-            }else{
-                return "Las fechas son iguales"
-            }
+            
+            //devolvemos el valor absoluto de la resta de las fechas
+            return Math.abs($diasTotalesFecha1 - $diasTotalesFecha2);
+            
         }
         //llamamos a la funcion.
         document.write("La diferencia es " + data1.diferencia(data2)+ " dias");
