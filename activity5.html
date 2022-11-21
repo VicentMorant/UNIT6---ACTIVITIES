@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        while(true){
+        //pedimos los datos de la primera fecha
+            $dia = parseInt(prompt("Dime dia: "));
+            $mes = parseInt(prompt("Dime mes: "));
+            $año = parseInt(prompt("Dime año: "));
+        //si el dia puesto es menor que 32 quiere decir que es valido
+        //si el mes es menor que 13 quiere decir que es valido
+        //si el año tiene 2 digitos osea es menor que 100 es valido
+            if($dia < 32 && $mes < 13 && $año < 100){
+                //salimos del bucle
+                break;
+            //volvemos a entrar al bucle avisando al usuario
+            }else{
+                alert("Error con los formatos de la fecha");
+            }
+
+        }           
+        
+        
+        //agregamos los datos restandole 1 al mes ya que enero es 0 y si ponemos 1 seria febrero.
+        let data1 = new Date($año, $mes-1, $dia);
+             
+
+        while(true){
+        
+            $dia = parseInt(prompt("Dime dia: "));
+            $mes = parseInt(prompt("Dime mes: "));
+            $año = parseInt(prompt("Dime año: "));
+
+            if($dia < 32 && $mes < 13 && $año < 100){
+                break;
+            }else{
+                alert("Error con los formatos de la fecha");
+            }
+
+        }       
+        
+        let data2 = new Date($año, $mes-1, $dia);
+
+        
+        //creamos una funcion dentro de "DATE" pasandole un parametro
+        Date.prototype.diferencia = function(d2){
+            //calculamos todos los dias que tiene la fecha1
+            $diasTotalesFecha1 = (this.getFullYear() * 365) + (this.getMonth()+1 * 30) + (this.getDate() * 1);
+            //y calculamos todos los dias que tiene la fecha2
+            $diasTotalesFecha2 = (d2.getFullYear() * 365) + (d2.getMonth()+1 * 30) + (d2.getDate() * 1);
+            //comprobamos cual es el mayor para restarle al mayor el menor
+            if($diasTotalesFecha1 > $diasTotalesFecha2){
+                return $diasTotalesFecha1-$diasTotalesFecha2;
+            }else if($diasTotalesFecha1<$diasTotalesFecha2){
+                return $diasTotalesFecha2-$diasTotalesFecha1;
+            }else{
+                return "Las fechas son iguales"
+            }
+        }
+        //llamamos a la funcion.
+        document.write("La diferencia es " + data1.diferencia(data2)+ " dias");
+
+    </script>
+    
+</body>
+</html>
